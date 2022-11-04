@@ -25,16 +25,22 @@ public class Calendar {
 
 		Scanner keyboard = new Scanner(System.in);
 		Calendar cal = new Calendar();
-		System.out.println("반복횟수를 입력하세요.");
-		int repeat = keyboard.nextInt();
-		
-		while(repeat > 0 ) {
+
+		while (true) {
 			System.out.println("월을 입력하세요.");
+			System.out.print("> ");
 			int month = keyboard.nextInt();
+
+			if (month == -1) {
+				System.out.println("Have a nice day!");
+				break;
+			} 
+			if (month < 1 || month > 12) {
+				System.out.println("1에서 12까지의 숫자를 입력하세요.");
+				continue;
+			}
 			System.out.printf("%d월은 %d일까지 있습니다.\n", month, cal.getMaxDays(month));
-			repeat--;
 		}
-		System.out.println("프로그램 종료");
 		keyboard.close();
 	}
 
