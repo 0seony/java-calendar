@@ -65,6 +65,7 @@ public class Calendar {
 				System.out.println("1에서 12까지의 숫자를 입력하세요.");
 				continue;
 			}
+			System.out.printf("<%d년 %d월 달력>\n",year,month);
 			cal.printCalendar(year, month, weekday);
 		}
 
