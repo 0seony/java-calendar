@@ -5,13 +5,24 @@ import java.util.Scanner;
 public class Calendar {
 
 	private static final int[] MAX_DAYS = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	private static final int[] LEAP_MAX_DAYS = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-	public int getMaxDays(int month) {
+	public int getMaxDays(int year, int month) {
+		if(isLeapYear(year)) {
+			return LEAP_MAX_DAYS[month-1];
+		}
 		return MAX_DAYS[month - 1];
 	}
+	
+	public boolean isLeapYear(int year) {
+		if(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+			return true;
+		}
+		return false;
+	}
 
-	public void printCalendar(int month) {
-		int maxDays = getMaxDays(month);
+	public void printCalendar(int year, int month) {
+		int maxDays = getMaxDays(year, month);
 		System.out.println("일   월   화   수   목   금   토");
 		System.out.println("------------------");
 		for(int day = 1; day <= maxDays; day++) {
@@ -29,11 +40,14 @@ public class Calendar {
 		Calendar cal = new Calendar();
 		
 		while (true) {
+			System.out.println("연도를 입력하세요.");
+			System.out.print("> ");
+			int year = keyboard.nextInt();
 			System.out.println("월을 입력하세요.");
 			System.out.print("> ");
 			int month = keyboard.nextInt();
 
-			if (month == -1) {
+			if (year == -1 || month == -1) {
 				System.out.println("Have a nice day!");
 				break;
 			} 
@@ -41,7 +55,7 @@ public class Calendar {
 				System.out.println("1에서 12까지의 숫자를 입력하세요.");
 				continue;
 			} 
-			cal.printCalendar(month);
+			cal.printCalendar(year, month);
 		}
 		
 		keyboard.close();
