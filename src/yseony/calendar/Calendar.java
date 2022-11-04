@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class Calendar {
 
-	private static final int[] maxDays = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	private static final int[] MAX_DAYS = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 	public int getMaxDays(int month) {
-		return maxDays[month - 1];
+		return MAX_DAYS[month - 1];
 	}
 
 	public void printCalendar(int month) {
