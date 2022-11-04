@@ -23,12 +23,18 @@ public class Calendar {
 
 	public static void main(String[] args) {
 
-		// 숫자를 입력 받아 해당 월의 최대 일수를 출력하는 프로그램
 		Scanner keyboard = new Scanner(System.in);
 		Calendar cal = new Calendar();
-		System.out.println("달을 입력하세요.");
-		int month = keyboard.nextInt();
-		System.out.printf("%d월은 %d일까지 있습니다.", month, cal.getMaxDays(month));
+		System.out.println("반복횟수를 입력하세요.");
+		int repeat = keyboard.nextInt();
+		
+		while(repeat > 0 ) {
+			System.out.println("월을 입력하세요.");
+			int month = keyboard.nextInt();
+			System.out.printf("%d월은 %d일까지 있습니다.\n", month, cal.getMaxDays(month));
+			repeat--;
+		}
+		System.out.println("프로그램 종료");
 		keyboard.close();
 	}
 
