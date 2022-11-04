@@ -45,6 +45,12 @@ public class Calendar {
 		Calendar cal = new Calendar();
 
 		while (true) {
+			System.out.println("달력을 출력하시겠습니까? y : 출력 / n : 종료");
+			String start = keyboard.next();
+			if(start.equals("n")) {
+				System.out.println("Have a nice day!");
+				break;
+			}
 			System.out.println("연도를 입력하세요.");
 			System.out.print("YEAR> ");
 			int year = keyboard.nextInt();
@@ -55,10 +61,6 @@ public class Calendar {
 			System.out.print("WEEKDAY> ");
 			String weekday = keyboard.next();
 
-			if (year == -1 || month == -1) {
-				System.out.println("Have a nice day!");
-				break;
-			}
 			if (month < 1 || month > 12) {
 				System.out.println("1에서 12까지의 숫자를 입력하세요.");
 				continue;
